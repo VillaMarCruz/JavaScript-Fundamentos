@@ -152,3 +152,110 @@ console.log(resultado);
 var numeros = [2, 4, 6, 8, 10];
 var resultado = numeros.every((numero) => numero % 2 === 0);
 console.log(resultado);
+/*********************************************************************************************************/
+// FIND - FINDINDEX
+var clientes = [
+    { id: 1, nombre: 'Ada' },
+    { id: 2, nombre: 'Marlon' },
+    { id: 3, nombre: 'Emily' },
+    { id: 4, nombre: 'Andrea' },
+    { id: 5, nombre: 'Victoria' },
+]
+var cliente = clientes.find((cliente) => cliente.id === 1);
+console.log(cliente);
+console.log(clientes);
+// FIND INDEX
+var clientes = [
+    { id: 1, nombre: 'Ada' },
+    { id: 2, nombre: 'Marlon' },
+    { id: 3, nombre: 'Emily' },
+    { id: 4, nombre: 'Andrea' },
+    { id: 5, nombre: 'Victoria' },
+]
+var posicion = clientes.findIndex((cliente) => cliente.id === 2);
+console.log(posicion);
+console.log(clientes[posicion]);
+/********************************************************************************************************* */
+//Include
+// Determinar si existe un elementoo en especifico
+var mascotas = ['perro', 'gatito', 'conejo'];
+var resultado = mascotas.includes('cerdo');
+console.log(resultado);
+console.log('marlon'.includes('lon'));
+
+var buscador = (parametro) => {
+    let clientes = [
+        { id: 1, nombre: 'Ada' },
+        { id: 2, nombre: 'Marlon' },
+        { id: 3, nombre: 'Emily' },
+        { id: 4, nombre: 'Andrea' },
+        { id: 5, nombre: 'Victoria' },
+    ]
+
+    return clientes.filter((cliente) => cliente.nombre.includes(parametro))
+}
+
+console.log(buscador('a'));
+
+// JOIN
+var elementos = ['aire', 'fuego', 'agua'];
+var resultado = elementos.join('--')
+console.log(resultado);
+
+var clientes = [
+        { id: 1, nombre: 'Ada' },
+        { id: 2, nombre: 'Marlon' },
+        { id: 3, nombre: 'Emily' },
+        { id: 4, nombre: 'Andrea' },
+        { id: 5, nombre: 'Victoria' },
+    ]
+    /* console.log(clientes.join()); */
+var csvGenerator = (array, separador = ',') => {
+    let headers = Object.keys(array[0]).join(separador);
+    let data = array.map((element) => Object.values(element).join(separador));
+    console.log(headers);
+    data.forEach(element => console.log(element));
+}
+
+csvGenerator(clientes);
+
+
+
+
+/* console.log(Object.values({ id: 5, nombre: 'Victoria' }));
+console.log(Object.keys({ id: 5, nombre: 'Victoria' })); */
+
+
+// CONCAT - SORT - SPLICE - SLICE
+
+var array1 = [1, 2, 3, 4, 5];
+var array2 = [6, 7, 8, 9, 0];
+
+var array3 = array1.concat(array2);
+var array4 = [...array1, ...array2];
+
+console.log(array1);
+console.log(array2);
+console.log(array3);
+
+// SORT
+var array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+console.log(array1.sort());
+
+var meses = ['Dic', 'Ene', 'Mar', 'Feb'];
+console.log(meses.sort());
+
+var array = [1, 10000, 21, 30, 4];
+var ordenado = array.sort((a, b) => a - b);
+console.log(ordenado);
+
+// SPLICE = Remover elementos del arreglo
+var nombres = ['Gabriel', 'Marlon', 'Emily', 'Dayanna'];
+nombres.splice(1, 1, 'Ada'); //(Posicion, Cuantos eliminar, Reemplazar)
+console.log(nombres);
+
+// SLICE = RETORNAR UNA COPIA DEL ARREGLO (PARTE MAS PEQUEÑA)
+var nombres = ['Gabriel', 'Marlon', 'Emily', 'Dayanna'];
+var resultado = nombres.slice(1, 3); // Parametros(De donde cortar, Posicion final) No incluye la ultima posicion;
+console.log(nombres);
+console.log(resultado);
